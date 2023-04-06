@@ -1,5 +1,10 @@
 function AccesoAutorizado(props){
-    return <h1>Bienvenidos, {props.nombre} tienes acceso autorizado ahora mismo</h1>;
+    return (
+            <>
+                <h1>Bienvenidos, {props.nombre} tienes acceso autorizado ahora mismo</h1>
+                <p>Rama Develop</p>
+            </>
+    );
 }
 
 function AccesoNoAutorizado(props){
