@@ -1,5 +1,5 @@
 function AccesoAutorizado(props){
-    return <h1>Bienvenido, {props.nombre} tienes acceso autorizado</h1>;
+    return <h1>Bienvenidos, {props.nombre} tienes acceso autorizado</h1>;
 }
 
 function AccesoNoAutorizado(props){
