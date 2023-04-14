@@ -1,3 +1,13 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(233, 233, 233);
+}
+
 #exportar{
     width: 97%;
 }
@@ -23,6 +33,7 @@
 .ocultar{
     display: none;
 }
+
 
 
 @media only screen and (max-width: 426px) {
