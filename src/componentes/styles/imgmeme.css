@@ -1,0 +1,15 @@
+
+.parrafo_superior{
+    font-family: Arial;
+    color: white;
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 0.9em;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 3px;
+    text-transform: uppercase;
+    overflow: hidden;    
+}
+
+
