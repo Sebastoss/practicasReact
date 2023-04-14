@@ -87,7 +87,9 @@ const Imgmeme = () => {
        
         
           <p className='parrafo_superior position-absolute top-10'>{textomeme}</p>
+          {imgMeme !== "" ? (
           <img id='imgAltoAncho' src={`../memesImg/${imgMeme}.webp`} alt="Meme" className='figure-img mt-3 d-block m-auto w-100' />
+          ) : (<p>Espera que se cargue la imagen</p>)} 
         </figure>
         </div>
 
