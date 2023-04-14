@@ -19,12 +19,12 @@ const Imgmeme = () => {
     
       const textmeme = (ev) =>{
         setTextomeme(ev.target.value); 
-        console.log(ev.target.value);
+        //console.log(ev.target.value);
       }
     
       const seleccionarImg = (ev) => {
         setImgMeme(ev.target.value); 
-        console.log(ev.target.value);
+        //console.log(ev.target.value);
         ocultarInput();
       
 
@@ -47,9 +47,9 @@ const Imgmeme = () => {
           /*document.body.appendChild(canvas);*/
           
 
-          let img = canvas.toDataURL("memesImg/png");
+          let img = canvas.toDataURL("image/jpeg", 0.75);
           let link = document.createElement("a");
-          link.download = "memepropio.png";
+          link.download = "memepropio.jpg";
           link.href = img;
           link.click();
       }); 
@@ -87,7 +87,7 @@ const Imgmeme = () => {
        
         
           <p className='parrafo_superior position-absolute top-10'>{textomeme}</p>
-          <img id='imgAltoAncho' src={`../memesImg/${imgMeme}.png`} alt="Meme" className='figure-img mt-3 d-block m-auto w-100' />
+          <img id='imgAltoAncho' src={`../memesImg/${imgMeme}.webp`} alt="Meme" className='figure-img mt-3 d-block m-auto w-100' />
         </figure>
         </div>
 
