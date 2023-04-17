@@ -13,10 +13,9 @@ body {
     position: relative;
    
 }
-.parrafo_superior{
+.texto-imagen {
     font-family:Arial, Helvetica, sans-serif;
     color: white;
-    /*font-size: 3.5rem;*/
     font-size:  7vw;
     font-weight: 900;
     line-height: 1em; 
@@ -29,32 +28,16 @@ body {
     text-transform: uppercase;
     overflow: hidden;    
     padding: 15px;
+    margin-bottom: 0px;
     width: 97%;
     position: absolute;
-    top: 0px;
-    /*top: calc(300px + 1px);*/
 }
 
 .parrafo_inferior{
-    font-family:Arial, Helvetica, sans-serif;
-    color: white;
-    /*font-size: 3.5rem;*/
-    font-size:  7vw;
-    font-weight: 900;
-    line-height: 1em; 
-    text-shadow:
-    3px 4px 0 #000,
-  -4px -2px 0 #000,  
-   1px -2px 0 #000,
-   -3px 5px 0 #000,
-    2px 5px 0 #000;
-    text-transform: uppercase;
-    overflow: hidden;    
-    padding: 15px;
-    width: 97%;
-    position: absolute;
     bottom: 0px;
-    /*top: calc(300px + 1px);*/
+}
+.parrafo_superior{
+    top: 0px;
 }
 
 .ocultar{
@@ -62,9 +45,8 @@ body {
 }
 
 
-
 @media only screen and (max-width: 426px) {
-    .parrafo_superior, .parrafo_inferior {
+    .texto-imagen {
         text-shadow:
         1px 1px 0 #000,
         -1px -1px 0 #000,  

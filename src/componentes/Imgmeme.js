@@ -105,8 +105,8 @@ const Imgmeme = () => {
             
               <figure id='exportar' className='mb-1 m-auto'>
 
-                <p className='parrafo_superior'>{textomeme}</p>
-                <p className='parrafo_inferior'>{textomeme2}</p>
+                <p className='texto-imagen parrafo_superior'>{textomeme}</p>
+                <p className='texto-imagen parrafo_inferior'>{textomeme2}</p>
                 {imgMeme !== null ? (
                 <img id='imgAltoAncho' src={`../memesImg/${imgMeme}.webp`} alt="Meme" className='figure-img mt-3 d-block m-auto w-100' />
                 ) : (<p>Espera que se cargue la imagen</p>)} 
