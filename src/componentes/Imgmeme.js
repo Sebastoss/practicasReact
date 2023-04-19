@@ -62,60 +62,81 @@ const Imgmeme = () => {
     <div>
 
         <section className='container p-0'>
-            <div className='bg-white text-secondary m-2 p-2 text-start rounded'>
+          
+            <div className='bg-white text-secondary m-2 p-3 text-start rounded'>
+
               <p>Bienvenido al generador de imágenes. A continuación puedes usar el buscador para encontrar la plantilla que quieras usar.</p>
 
               <p>Una vez que encuentres la imagen, continua con el campo de texto para ponerle una frase.</p>
 
               <p className='fw-bold'>¡Diviértete creando!</p>
-            </div>
-            <h2 className='p-2 bg-secondary bg-gradient text-bold fw-bold text-white'>Elige la imagen para tu meme</h2>
 
-          {/* 
-          --- Select Anterior a usar React-Select ---
-
-          <select onChange={seleccionarImg} className="form-select form-select-lg mb-3 w-75 m-auto" aria-label="Default select example">
-                <option>Selecciona una imagen</option>
-                {options.map((option) =>(
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-            </select> */}
-
-            <Select
-            className='w-75 m-auto'
-            value={imgMeme}
-            onChange={seleccionarImg}
-            options={options}
-            isSearchable
-            placeholder="Busca una imagen..."
-            />
-            
-            <div className='ocultar'>
-              <h2 className='p-2 mt-2 bg-secondary bg-gradient text-bold fw-bold text-white'>Frase superior</h2>
-              <input onChange={textmeme} className="form-control w-75 m-auto" type="text" placeholder="Escribe la frase superior" name="meme" value={textomeme} />
-            </div>
-            <div className='ocultar'>
-              <h2 className='p-2 mt-2 bg-secondary bg-gradient text-bold fw-bold text-white'>Frase inferior</h2>
-              <input onChange={textmeme2} className="form-control w-75 m-auto" type="text" placeholder="Escribe la frase inferior" name="meme2" value={textomeme2} />
             </div>
             
-            <div className='ocultar'>
+            <div className='d-md-flex flex-row-reverse bg-white m-2 rounded'>
+              
             
-              <figure id='exportar' className='mb-1 m-auto'>
 
-                <p className='texto-imagen parrafo_superior'>{textomeme}</p>
-                <p className='texto-imagen parrafo_inferior'>{textomeme2}</p>
-                {imgMeme !== null ? (
-                <img id='imgAltoAncho' src={`../memesImg/${imgMeme}.webp`} alt="Meme" className='figure-img mt-3 d-block m-auto w-100' />
-                ) : (<p>Espera que se cargue la imagen</p>)} 
+            <div className='col-sm-12 col-md-6 p-2'>
 
-              </figure>
+              <h2 className='p-1 p-md-2 mt-3 bg-secondary bg-gradient text-bold fw-bold text-white rounded'>Elige la imagen para tu meme</h2>
+
+              {/* 
+              --- Select Anterior a usar React-Select ---
+
+              <select onChange={seleccionarImg} className="form-select form-select-lg mb-3 w-75 m-auto" aria-label="Default select example">
+                  <option>Selecciona una imagen</option>
+                  {options.map((option) =>(
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+              </select> */}
+
+              <Select
+              className='w-75 m-auto'
+              value={imgMeme}
+              onChange={seleccionarImg}
+              options={options}
+              isSearchable
+              placeholder="Busca una imagen..."
+              />
+
+              <div className='ocultar'>
+
+                  <h2 className='p-1 mt-2 bg-secondary bg-gradient text-bold fw-bold text-white rounded'>Frase superior</h2>
+                  <input onChange={textmeme} className="form-control w-75 m-auto" type="text" placeholder="Escribe la frase superior" name="meme" value={textomeme} />
+
+              </div>
+
+              <div className='ocultar'>
+
+                  <h2 className='p-1 mt-2 bg-secondary bg-gradient text-bold fw-bold text-white rounded'>Frase inferior</h2>
+                  <input onChange={textmeme2} className="form-control w-75 m-auto" type="text" placeholder="Escribe la frase inferior" name="meme2" value={textomeme2} />
+
+              </div>
 
             </div>
+            
+              
+              <div className='ocultar col-sm-12 col-md-6 p-2'>
+              
+                <figure id='exportar' className='mb-1 m-auto'>
 
-            <button onClick={descarga} type="button" className='ocultar btn btn-info btn-lg bg-gradient text-white mt-3 mb-2'>Descargar meme</button>
+                  <p className='texto-imagen parrafo_superior'>{textomeme}</p>
+                  <p className='texto-imagen parrafo_inferior'>{textomeme2}</p>
+                  {imgMeme !== null ? (
+                  <img id='imgAltoAncho' src={`../memesImg/${imgMeme}.webp`} alt="Meme" className='figure-img mt-3 d-block m-auto w-100' />
+                  ) : (<p>Espera que se cargue la imagen</p>)} 
+
+                </figure>
+
+                <button onClick={descarga} type="button" className='ocultar btn btn-info btn-lg bg-gradient text-white mt-3 mb-2'>Descargar meme</button>
+
+              </div>
+
+        </div>
+
         </section>
 
     </div>
