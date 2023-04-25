@@ -8,8 +8,8 @@ const Imgmeme = () => {
 
   const [textomeme, setTextomeme] = useState("");
   const [textomeme2, setTextomeme2] = useState("");
+  
   const [imgMeme, setImgMeme] = useState(null);
-
   const [memes, setMemes] = useState([]);
 
     useEffect(()=>{
@@ -81,12 +81,13 @@ const Imgmeme = () => {
 
   //   // 
   // }
+  
 
-
-  const descarga = (ev) => {
-        html2canvas(document.getElementById('exportar')).then(function(canvas) {
-          console.log(memes.url)
+   const descarga = (ev) => {
+        html2canvas(document.getElementById('exportar'),{useCORS:true}).then(function(canvas) {
+          
         let img = canvas.toDataURL("image/jpeg", 0.75);
+        console.log(img)
         let link = document.createElement("a");
         link.download = "memepropio.jpg";
         link.href = img;
@@ -94,6 +95,7 @@ const Imgmeme = () => {
         //console.log(options.url)
     }); 
   }
+  
 
   return (
     <div>
