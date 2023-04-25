@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import html2canvas from 'html2canvas';
 import Select from 'react-select';
 
@@ -10,12 +10,31 @@ const Imgmeme = () => {
   const [textomeme2, setTextomeme2] = useState("");
   const [imgMeme, setImgMeme] = useState(null);
 
-  const options = [
-    { value: 6, label: 'Futurama' },
-    { value: 7, label: 'Bob esponja' },
-    { value: 8, label: 'Señora' },
-    { value: 9, label: 'Calamardo' },
-  ];
+  const [memes, setMemes] = useState([]);
+
+    useEffect(()=>{
+        fetch("https://api.imgflip.com/get_memes")
+            .then(data => data.json())
+            .then(json => setMemes(json.data.memes.map((meme) => ({
+              value: meme.url,
+              label: meme.name
+            }))))
+    }, []);
+
+
+    // const options = memes.map((meme) => ({
+    //   value: meme.url,
+    //   label: meme.name
+    // }));
+      
+
+
+  // const options = [
+  //   { value: 6, label: 'Futurama' },
+  //   { value: 7, label: 'Bob esponja' },
+  //   { value: 8, label: 'Señora' },
+  //   { value: 9, label: 'Calamardo' },
+  // ];
     
   const textmeme = (ev) =>{
     setTextomeme(ev.target.value); 
@@ -47,14 +66,32 @@ const Imgmeme = () => {
     }
   }
 
+  // const activarDescarga = ()=>{
+  //   console.log(document.getElementById('contenedorExportar'));
+    
+  //   const div = document.getElementById('contenedorExportar');
+  //   const button = document.createElement('button');
+    
+  //   button.onclick = descarga;
+  //   button.type = "button";
+  //   button.className = " btn btn-info btn-lg bg-gradient text-white mt-3 mb-2";
+  //   button.textContent = "Descargar Meme";
+
+  //   div.appendChild(button);
+
+  //   // 
+  // }
+
 
   const descarga = (ev) => {
-    html2canvas(document.getElementById('exportar')).then(function(canvas) {
+        html2canvas(document.getElementById('exportar')).then(function(canvas) {
+          console.log(memes.url)
         let img = canvas.toDataURL("image/jpeg", 0.75);
         let link = document.createElement("a");
         link.download = "memepropio.jpg";
         link.href = img;
         link.click();
+        //console.log(options.url)
     }); 
   }
 
@@ -97,7 +134,7 @@ const Imgmeme = () => {
               className='w-75 m-auto'
               value={imgMeme}
               onChange={seleccionarImg}
-              options={options}
+              options={memes}
               isSearchable
               placeholder="Busca una imagen..."
               />
@@ -119,19 +156,19 @@ const Imgmeme = () => {
             </div>
             
               
-              <div className='ocultar col-sm-12 col-md-6 p-2'>
+              <div id='contenedorExportar' className='ocultar col-sm-12 col-md-6 p-2'>
               
                 <figure id='exportar' className='mb-1 m-auto'>
 
                   <p className='texto-imagen parrafo_superior'>{textomeme}</p>
                   <p className='texto-imagen parrafo_inferior'>{textomeme2}</p>
                   {imgMeme !== null ? (
-                  <img id='imgAltoAncho' src={`../memesImg/${imgMeme}.webp`} alt="Meme" className='figure-img mt-3 d-block m-auto w-100' />
+                  <img id='imgAltoAncho' src={imgMeme} alt="Meme" className='figure-img mt-3 d-block m-auto w-100' />
                   ) : (<p>Espera que se cargue la imagen</p>)} 
 
                 </figure>
-
                 <button onClick={descarga} type="button" className='ocultar btn btn-info btn-lg bg-gradient text-white mt-3 mb-2'>Descargar meme</button>
+                
 
               </div>
 
